@@ -1,52 +1,60 @@
 @font-face {
-    font-family: ghibli;
-    src: url('./assets/Ghibli-Font/Eyad\ Al-Samman\ -\ Ghibli-Bold.otf');
+  font-family: ghibli;
+  src: url("./assets/Ghibli-Font/Eyad\ Al-Samman\ -\ Ghibli-Bold.otf");
 }
 
 body {
-    text-align: center;
-    font-family: ghibli;
-    background-color: #8dabb0;
-    color: white;
+  text-align: center;
+  font-family: ghibli;
+  background-color: #8dabb0;
+  color: white;
 }
 
 #searchbar {
-    height: 10vh;
-    width: 80vw;
-    border-radius: 50px;
-    outline: none;
-    font-size: xx-large ;
-    margin: auto;
-    margin-bottom: 3%;
-    background-color: #e1d0c9;;
-    text-align: center;
+  height: 10vh;
+  width: 80vw;
+  border-radius: 50px;
+  outline: none;
+  font-size: xx-large;
+  margin: auto;
+  margin-bottom: 3%;
+  background-color: #e1d0c9;
+  text-align: center;
 }
 
 #button {
-    height: 5vh;
-    width: 50vw;
-    margin: auto;
-    background-color: #2d525b;
-    border-radius: 10px;
-    outline: none;
-    color: white;
-    font-size: large;
+  height: 5vh;
+  width: 50vw;
+  margin: auto;
+  background-color: #2d525b;
+  border-radius: 10px;
+  outline: none;
+  color: white;
+  font-size: large;
 }
 
 #search {
-    display: flex;
-    flex-direction: column;
-    
+  display: flex;
+  flex-direction: column;
 }
 
 .canvas {
-    display: flex;
-    width: 80%
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin-left: 50%;
+  height: 20vh;
 }
 
 article {
-    display: flex;
-    margin: auto;
-    margin-top: 5%;
-    margin-left: 14vw;
+  display: flex;
+  margin: auto;
+  margin-top: 5%;
+  margin-left: -5vw;
+  width: 30%
+}
+
+.p {
+    font-size: small;
+
 }

@@ -12,25 +12,22 @@
 // display in square cards, whole page have a lowered opacity with a lighter tone
 // allow users to open modal with all information once clicked upon
 
-let howDoYouLive =
-  "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.sOn2Y56WJ8rGnZVtzvkdAgHaLH%26pid%3DApi&f=1";
-let earwigAndWitch =
-  "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.G5-q9GaRG33oL5msdCKe2wAAAA%26pid%3DApi&f=1";
-let marnieWasThere =
-  "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%3Fid%3DOIP.QEQx-ySXrzT2_az6QKSYFQHaK0%26pid%3DApi&f=1";
 
-let canvas = document.querySelector("#c1");
-let cxt1 = canvas.getContext("2d");
+let canvas1 = document.querySelector("#c1");
+canvas1.style.marginLeft = '-350%'
+let cxt1 = canvas1.getContext("2d");
 cxt1.fillStyle = "#e9afac";
 cxt1.fillRect(250, 15, 40, 20);
 
-let canvas1 = document.querySelector("#c2");
-let ctx2 = canvas1.getContext("2d");
+let canvas2 = document.querySelector("#c2");
+canvas2.style.marginLeft = '-350%'
+let ctx2 = canvas2.getContext("2d");
 ctx2.fillStyle = "#63ada2";
 ctx2.fillRect(250, 15, 40, 20);
 
-let canvas2 = document.querySelector("#c3");
-let cxt3 = canvas2.getContext("2d");
+let canvas3 = document.querySelector("#c3");
+let cxt3 = canvas3.getContext("2d");
+canvas3.style.marginLeft = '-350%'
 cxt3.fillStyle = "#2d525b";
 cxt3.fillRect(250, 15, 40, 20);
 
@@ -51,7 +48,6 @@ const getResults = async (e) => {
   ]);
   all = [...response[0], ...response[1], ...response[2]];
   displayResults(response[0], response[1], response[2], all);
-
 };
 
 button.addEventListener("click", getResults);
@@ -63,10 +59,8 @@ const displayResults = (films, people, places, all) => {
   }
 
   div.innerText = " ";
-  div.style.marginTop = "2%";
+  // div.style.marginTop = "2%";
   div.style.fontSize = "130%";
-
-
 
   for (let i = 0; i < all.length; i++) {
     if (i < 21) {
@@ -74,7 +68,6 @@ const displayResults = (films, people, places, all) => {
         all[i].title.toLowerCase().includes(input.value.toLowerCase()) ||
         all[i].description.toLowerCase().includes(input.value.toLowerCase())
       ) {
-
         let card = document.createElement("div");
         let title = document.createElement("h2");
         let description = document.createElement("p");
@@ -91,7 +84,7 @@ const displayResults = (films, people, places, all) => {
         card.style.backgroundColor = "#e9afac";
         card.style.marginTop = "3%";
         card.style.padding = "3%";
-        card.style.width = "20%";
+        card.style.width = "70%";
 
         div.appendChild(card);
         card.appendChild(title);
@@ -120,14 +113,13 @@ const displayResults = (films, people, places, all) => {
         card.style.backgroundColor = "#63ada2";
         card.style.marginTop = "3%";
         card.style.padding = "3%";
-        card.style.width = "20%";
+        card.style.width = "70%";
 
         div.appendChild(card);
         card.appendChild(name);
         card.appendChild(movie);
       }
     } else {
-
       if (all[i].name.toLowerCase().includes(input.value.toLowerCase())) {
         let card = document.createElement("div");
         let name = document.createElement("h2");
@@ -135,8 +127,7 @@ const displayResults = (films, people, places, all) => {
         let movie = document.createElement("p");
 
         name.innerText = `${all[i].name} in the`;
-        climate.innerText =` ${all[i].climate} ${all[i].terrain} from `;
-    
+        climate.innerText = ` ${all[i].climate} ${all[i].terrain} from `;
 
         for (id of ids) {
           if (all[i].films[0].includes(id.id)) {
@@ -148,7 +139,7 @@ const displayResults = (films, people, places, all) => {
         card.style.backgroundColor = "#2d525b";
         card.style.marginTop = "3%";
         card.style.padding = "3%";
-        card.style.width = "20%";
+        card.style.width = "70%";
 
         div.appendChild(card);
         card.appendChild(name);
@@ -157,5 +148,4 @@ const displayResults = (films, people, places, all) => {
       }
     }
   }
-  
 };
