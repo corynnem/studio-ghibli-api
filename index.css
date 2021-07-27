@@ -1,3 +1,12 @@
+/* There are 3 errors on this page */
+/* 
+  1. line 10; At src: ulr("") should be src: url("")
+  2. line 34; at #button should be #button { 
+  3. line 67; at fontSize: small should be font-size: small
+*/
+
+
+
 @font-face {
   font-family: ghibli;
   src: url("./assets/Ghibli-Font/Eyad\ Al-Samman\ -\ Ghibli-Bold.otf");

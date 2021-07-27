@@ -1,17 +1,29 @@
+/* There are 5 errors on this page */
+/* 
+  1. line 28; At context3.fillRext() should be context3.fillRect();
+  2. line 36; At const getResults = asynchronous(e) => { should be const getResults = async(e) => {
+  3. line 44; At  ..response[2] should be ...response[2]
+  4. line 76; At cards.style.display = "flex-styles"; should be cards.style.display = "flex";
+  5. line 125; At for (id each of ids) { should be for (id of ids) {
+*/
+
+
 let canvas1 = document.querySelector("#c1");
-canvas1.style.marginLeft = "-350%";
 let cxt1 = canvas1.getContext("2d");
+let canvas2 = document.querySelector("#c2");
+let ctx2 = canvas2.getContext("2d");
+let canvas3 = document.querySelector("#c3");
+let cxt3 = canvas3.getContext("2d");
+
+
+canvas1.style.marginLeft = "-350%";
 cxt1.fillStyle = "#e9afac";
 cxt1.fillRect(250, 15, 40, 20);
 
-let canvas2 = document.querySelector("#c2");
 canvas2.style.marginLeft = "-350%";
-let ctx2 = canvas2.getContext("2d");
 ctx2.fillStyle = "#63ada2";
 ctx2.fillRect(250, 15, 40, 20);
 
-let canvas3 = document.querySelector("#c3");
-let cxt3 = canvas3.getContext("2d");
 canvas3.style.marginLeft = "-350%";
 cxt3.fillStyle = "#2d525b";
 cxt3.fillRect(250, 15, 40, 20);
@@ -21,6 +33,7 @@ let button = document.querySelector("#button");
 let main = document.querySelector("main");
 let div = document.querySelector("#cards");
 let all = [];
+
 const getResults = async (e) => {
   let response = await Promise.all([
     fetch("https://ghibliapi.herokuapp.com/films").then((res) => res.json()),
@@ -83,16 +96,16 @@ const displayResults = (all) => {
         let eyeColor = document.createElement("p");
         let movie = document.createElement("p");
 
+        for (id of ids) {
+            if (all[i].films[0].includes(id.id)) {
+              id.character = all[i].name;
+              movie.innerText = id.name;
+  
+            }
+          }
+  
         name.innerText = `${all[i].name} from`;
         eyeColor.innerText = all[i].eye_color;
-
-        for (id of ids) {
-          if (all[i].films[0].includes(id.id)) {
-            id.character = all[i].name;
-            movie.innerText = id.name;
-
-          }
-        }
 
         card.style.backgroundColor = "#63ada2";
         card.style.marginTop = "3%";
@@ -110,16 +123,17 @@ const displayResults = (all) => {
         let climate = document.createElement("p");
         let movie = document.createElement("p");
 
+        for (id of ids) {
+            if (all[i].films[0].includes(id.id)) {
+              id.location = all[i].name;
+              movie.innerText = id.name;
+            }
+          }
+
         name.innerText = `${all[i].name} in the`;
         climate.innerText = ` ${all[i].climate} ${all[i].terrain} from `;
         console.log(ids)
-        for (id of ids) {
-          if (all[i].films[0].includes(id.id)) {
-            id.location = all[i].name;
-            movie.innerText = id.name;
-          }
-        }
-
+  
         card.style.backgroundColor = "#2d525b";
         card.style.marginTop = "3%";
         card.style.padding = "3%";
